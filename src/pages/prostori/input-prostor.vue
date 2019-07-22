@@ -34,9 +34,16 @@
 </template>
 
 <script>
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
 export default {
+    created () {
+    const collectionRef = this.$db.collection("Prostori")
+collectionRef.get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+}); 
+  },
   data () {
     return {
       nazivPr: null,
