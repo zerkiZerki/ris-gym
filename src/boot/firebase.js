@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { firestorePlugin } from 'vuefire';
 
 
 export default ({ Vue }) => {
@@ -17,6 +18,7 @@ export default ({ Vue }) => {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+  Vue.use(firestorePlugin)
   // Firestore settings.
   const firestore = firebase.firestore();
   Vue.prototype.$fb = firebase;

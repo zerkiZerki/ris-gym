@@ -15,7 +15,7 @@
     <q-table
       id="prostor-list"
       title="Prostori"
-      :data="data"
+      :data="test"
       :columns="columns"
       row-key="name"
       :separator="separator"
@@ -25,15 +25,18 @@
 
 <script>
 export default {
-    created () {
-      const collectionRef = this.$db.collection("Prostor")
-      collectionRef.get().then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
-            debugger
-              // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data());
-          });
-}); 
+  // created () {
+  //   const collectionRef = this.$db.collection("Prostor")
+  //   collectionRef.get().then(function(querySnapshot) {
+  //       querySnapshot.forEach(function(doc) {
+  //         debugger
+  //           // doc.data() is never undefined for query doc snapshots
+  //           console.log(doc.id, " => ", doc.data());
+  //       });
+  //     }); 
+  // },
+  mounted () {
+    console.log(this.test)
   },
   data () {
     return {
@@ -45,11 +48,11 @@ export default {
           required: true,
           label: 'Naziv prostora',
           align: 'left',
-          field: row => row.name,
+          field: row => row.Naziv_prostora,
           format: val => `${val}`,
           sortable: true
         },
-        { name: 'Opis', label: 'Opis prostora', field: 'opis', sortable: false }
+        { name: 'Opis', label: 'Opis prostora', field: row => row.Opis_prostora, sortable: false }
       ],
       data: [
         {
@@ -60,7 +63,14 @@ export default {
           name: 'Dvorana 2',
           opis: 'Heheheh'
         }
-      ]
+      ],
+      test: null
+    }
+  },
+  firestore () {
+    const prostoriRef = this.$db.collection('Prostor')
+    return {
+      test: prostoriRef
     }
   }
 }
