@@ -53,7 +53,7 @@ collectionRef.get().then(function(querySnapshot) {
   },
   methods: {
     onSubmit () {
-     firebase.collection("Prostori").add({
+     firebase.collection("Prostor").add({
       Naziv_prostora: nazivPr,
       Opis_prostora: opisPr
      })
