@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     onSubmit () {
-      const collectionRef = this.$db.collection("Prostori")
+      const collectionRef = this.$db.collection("Prostor")
       collectionRef.add({
-          Naziv_prostora: nazivPr,
-          Opis_prostora: opisPr
+          Naziv_prostora: this.nazivPr,
+          Opis_prostora: this.opisPr
         })
       .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
