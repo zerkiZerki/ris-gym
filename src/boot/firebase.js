@@ -1,6 +1,6 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 
 export default ({ Vue }) => {
@@ -13,14 +13,14 @@ export default ({ Vue }) => {
   storageBucket: 'gym-management-1.appspot.com',
   messagingSenderId: '509490611448',
   appId: '1:509490611448:web:8821a483272b735b'
-}
+};
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 
   // Firestore settings.
-  const firestore = firebase.firestore()
-  Vue.prototype.$fb= firebase
+  const firestore = firebase.firestore();
+  Vue.prototype.$fb = firebase;
 
   // Initialize Cloud Firestore through Firebase
-  Vue.prototype.$db = firestore
-}
+  Vue.prototype.$db = firestore;
+};
